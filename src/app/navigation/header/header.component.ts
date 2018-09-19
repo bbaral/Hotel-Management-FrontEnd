@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {AuthenticationService} from '../../service/authentication.service';
+import {LoginService} from '../../service/login.service';
+// import {LoginService} from '../../service/authentication.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
   private loggedIn = false;
 
-  constructor(private authService: AuthenticationService, private router: Router) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
@@ -21,7 +22,11 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
+    this.loginService.logout();
+  }
+
+  ngOnDestroy() {
+    this.loginService.logout();
   }
 
 }

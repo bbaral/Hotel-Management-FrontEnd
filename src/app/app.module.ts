@@ -10,8 +10,8 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { FindHotelComponent } from './find-hotel/find-hotel.component';
 import { YourReservationComponent } from './your-reservation/your-reservation.component';
 import { LoginComponent } from './login/login.component';
-import {AppRouting} from './AppRouting';
-import {AuthenticationService} from './service/authentication.service';
+// import {AppRouting} from './AppRouting';
+// import {LoginService} from './service/authentication.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import {AuthenticationService} from './service/authentication.service';
     HeaderComponent,
     FindHotelComponent,
     YourReservationComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,10 +27,9 @@ import {AuthenticationService} from './service/authentication.service';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    AppRouting,
     FlexLayoutModule
   ],
-  providers: [AuthenticationService],
+  providers: [],
   bootstrap: [DriverComponent],
   entryComponents: []
 })

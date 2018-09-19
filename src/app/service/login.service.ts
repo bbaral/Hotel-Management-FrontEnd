@@ -3,13 +3,13 @@ import {Router} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
-export class AuthenticationService {
+export class LoginService {
 
   constructor(private router: Router, private http: HttpClient) { }
 
   loginCredential(username: string, password: string) {
     const url = 'http://localhost:8080/token';
-    const encoderCredentials = btoa(username+ ":" + password);
+    const encoderCredentials = btoa(username + ':' + password);
     const basicHeader = 'Basic ' + encoderCredentials;
     const headers = new HttpHeaders({
       'Content-Type' : 'application/x-www-form-urlencoded',

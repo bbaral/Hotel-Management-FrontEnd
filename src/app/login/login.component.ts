@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../service/authentication.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+// import {LoginService} from '../service/authentication.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {LoginService} from '../service/login.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   loginForm: FormGroup;
    private loggedIn = false;
+   private logginPass: Subscription;
   private credential = {'username': '', 'password' : ''};
 
-  constructor(private loginService: AuthenticationService) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -30,11 +33,14 @@ export class LoginComponent implements OnInit {
     this.loginService.loginCredential(this.credential.username, this.credential.password).subscribe(
       res => {
       console.log(res);
-      localStorage.getItem('xAuthToken', res.json().token);
       this.loggedIn = true;
     }, error => {
         console.log(error);
       });
+  }
+
+  ngOnDestroy() {
+    this.logginPass.unsubscribe();
   }
 
 }

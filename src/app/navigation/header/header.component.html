@@ -1,10 +1,37 @@
-<mat-toolbar class="mat-primary">
-  <h3 [style.color]="'white'">HOTEL</h3>
-  <span class="example-spacer"></span>
-  <span><a mat-button color="accent" [style.color]="'white'" routerLink="/find-hotel">Find Hotel</a></span>
-  <span><a mat-button color="accent" [hidden]="!loggedIn"  [style.color]="'white'" routerLink="/your-reservation">Your Reservation</a></span>
-  <span><a mat-button color="accent"  [style.color]="'white'" routerLink="/login">Login</a></span>
-  <span><a mat-button color="accent" [hidden]="!loggedIn" [style.color]="'white'" (click)="logout()" >Logout</a></span>
-</mat-toolbar>
+<div class="w3-bar w3-border w3-teal">
+  <a routerLink="/" class="w3-bar-item w3-button">
+    <i class="fa fa-bed fa-lg"></i>
+    HOTEL MANAGEMENT
+  </a>
+  <a [hidden]="!loggedIn" class="w3-bar-item w3-button">Admin Portfolio</a>
+  <a [hidden]="!loggedIn" class="w3-bar-item w3-button">Reservation Detail</a>
+  <a [hidden]="!loggedIn" class="w3-bar-item w3-button w3-right">
+    Login
+    <i class="fa fa-sign-in" aria-hidden="true"></i>
+  </a>
+  <a href="#" class="w3-bar-item w3-button w3-right">
+    Sign out
+    <i class="fa fa-sign-out" aria-hidden="true"></i>
+  </a>
+</div>
+
+<!--<div class="w3-container w3-blue">-->
+  <!--<h2>Input Form</h2>-->
+<!--</div>-->
+<!--<form class="w3-container">-->
+  <!--<p>-->
+    <!--<label>First Name</label>-->
+    <!--<input class="w3-input" type="text"></p>-->
+  <!--<p>-->
+    <!--<label>Last Name</label>-->
+    <!--<input class="w3-input" type="text"></p>-->
+  <!--<p>-->
+    <!--<label>Email</label>-->
+    <!--<input class="w3-input" type="text">-->
+  <!--</p>-->
+  <!--<p>-->
+    <!--<button class="w3-btn w3-blue w3-border w3-blue w3-round-large w3-center">Button</button>-->
+  <!--</p>-->
+<!--</form>-->
 
 
